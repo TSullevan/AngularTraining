@@ -1,36 +1,59 @@
 import { MaskService } from "../../services/mask.service";
+import { ValidationService } from "../../services/validation.service";
 
 class InputModel {
     
-    title: string;
-    text: string;
-    type: string;
-    placeHolder: string;
+    class: string;
     description: string;
     mask: Function;
-    value: string;
     maxLength: number;
-
-    private maskMethod: Function;    
+    placeHolder: string;
+    text: string;
+    title: string;
+    type: string;
+    value: string;
+    validation: Function;
+    
+    private maskMethod: Function;
     private maskService: MaskService;
+    private validationMethod: Function;
+    private validationService: ValidationService;
+    private defaultClass: string;
+    private redBorderClass: string;
+
     constructor() {
-        this.title = '';
-        this.text = '';
-        this.type = 'text';
-        this.placeHolder = '';
+        this.defaultClass = 'form-control';
+        this.redBorderClass = 'form-control red-border';
+        this.class = 'form-control';
         this.description = '';
         this.mask = this.maskAlgorithm;
         this.maskMethod = this.noMask;
         this.maskService = new MaskService();
         this.maxLength = 200;
+        this.placeHolder = '';
+        this.text = '';
+        this.title = '';
+        this.type = 'text';
+        this.validation = this.validationAlgorithm;
+        this.validationMethod = this.noValidation;
+        this.validationService = new ValidationService();
     }
-
-    private noMask(text: string) {
+    
+    private noMask(text: string): string {
         return text;
     }
-
-    private maskAlgorithm() {
+    
+    private maskAlgorithm(): void {
         this.value = this.maskMethod(this.value);
+    }
+    
+    private noValidation(text: string): boolean {
+        return true;
+    }
+
+    private validationAlgorithm(): void {
+        let isValid = this.validationMethod(this.value);
+        this.class = isValid ? this.defaultClass : this.redBorderClass;
     }
 
     public AsName(): InputModel {
@@ -47,6 +70,7 @@ class InputModel {
         this.description = 'Fique tranquilo, seus dados estão seguros conosco.';
         this.maskMethod = this.maskService.cpfMask;
         this.maxLength = 14
+        this.validationMethod = this.validationService.cpfValidation;
         return this;
     }
 }
