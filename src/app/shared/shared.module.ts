@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
+import { AbbreviatePipe } from './pipes/abbreviate.pipe';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     NotFoundPageComponent,
     NavbarComponent,
     FormComponent,
-    InputComponent
+    InputComponent,
+    AbbreviatePipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     MasterPageComponent,
     NotFoundPageComponent,
     NavbarComponent,
-    FormComponent
+    FormComponent,
+    InputComponent,
+    AbbreviatePipe
   ]
 })
 export class SharedModule { }
