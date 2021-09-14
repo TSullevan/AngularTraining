@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, Router, RouterModule, Routes } from "@angular/router";
 import { HomePageComponent } from "./home/pages/home-page/home-page.component";
+import { RegisterPageComponent } from "./register/pages/register-page/register-page.component";
 import { MasterPageComponent } from "./shared/pages/master-page/master-page.component";
 import { NotFoundPageComponent } from "./shared/pages/not-found-page/not-found-page.component";
 
@@ -17,6 +18,10 @@ const desktopRoutes: Routes = [
       {
         path: '',
         component: HomePageComponent
+      },
+      {
+        path: 'cadastrar',
+        component: RegisterPageComponent
       }
     ]
   },
