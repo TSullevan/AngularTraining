@@ -5,13 +5,17 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { MasterPageComponent } from './pages/master-page/master-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormComponent } from './components/form/form.component';
+import { InputComponent } from './components/input/input.component';
 
 
 @NgModule({
   declarations: [
     MasterPageComponent,
     NotFoundPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   exports: [
     MasterPageComponent,
     NotFoundPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormComponent
   ]
 })
 export class SharedModule { }
