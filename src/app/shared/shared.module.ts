@@ -7,6 +7,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/input/input.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { InputComponent } from './components/input/input.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     SharedRoutingModule
   ],
   exports: [

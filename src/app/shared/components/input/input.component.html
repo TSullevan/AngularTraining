@@ -1,4 +1,4 @@
 <label for="exampleInputEmail1">{{model.title}}</label>
 <input [type]="model.type" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-    [placeholder]="model.placeHolder">
+    [placeholder]="model.placeHolder" [(ngModel)]="model.value" (keyup)="model.mask();" [maxlength]="model.maxLength">
 <small id="emailHelp" class="form-text text-muted">{{model.description}}</small>
