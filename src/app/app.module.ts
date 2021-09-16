@@ -7,6 +7,8 @@ import { SharedModule } from './shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './home/home.module';
 import { RegisterModule } from './register/register.module';
+import { CrudModule } from './crud/crud.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { RegisterModule } from './register/register.module';
     SharedModule,
     NgbModule,
     HomeModule,
-    RegisterModule
+    RegisterModule,
+    CrudModule
   ],
   providers: [],
   bootstrap: [AppComponent]

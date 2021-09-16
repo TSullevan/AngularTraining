@@ -11,7 +11,7 @@ export class HomePageComponent implements OnInit {
   public nameInput: InputModel = new InputModel();
 
   constructor() {
-    this.nameInput = new InputModel().AsName();
+    this.nameInput = new InputModel().asName();
   }
 
   ngOnInit(): void {

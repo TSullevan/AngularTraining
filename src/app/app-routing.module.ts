@@ -1,15 +1,16 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, Router, RouterModule, Routes } from "@angular/router";
+import { CrudPageComponent } from "./crud/pages/crud-page/crud-page.component";
 import { HomePageComponent } from "./home/pages/home-page/home-page.component";
 import { RegisterPageComponent } from "./register/pages/register-page/register-page.component";
 import { MasterPageComponent } from "./shared/pages/master-page/master-page.component";
 import { NotFoundPageComponent } from "./shared/pages/not-found-page/not-found-page.component";
 
 const desktopRoutes: Routes = [
-//   {
-//     path: 'login',
-//     component: LoginComponent
-//   },
+  //   {
+  //     path: 'login',
+  //     component: LoginComponent
+  //   },
   {
     path: '',
     component: MasterPageComponent,
@@ -22,6 +23,10 @@ const desktopRoutes: Routes = [
       {
         path: 'cadastrar',
         component: RegisterPageComponent
+      },
+      {
+        path: 'crud',
+        component: CrudPageComponent
       }
     ]
   },

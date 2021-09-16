@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormService } from '../../http-services/form.service';
 import FormModel from './form.model';
 
 @Component({
@@ -9,9 +10,22 @@ import FormModel from './form.model';
 export class FormComponent implements OnInit {
 
   @Input() model: FormModel = new FormModel();
-  constructor() { }
+  constructor(private service: FormService) { }
 
   ngOnInit(): void {
   }
 
+  public sendRequest(): void {
+
+    let inputs = this.model.inputs;
+    
+    let user = {
+      Name: 'nome',
+      Cpf: '23441221',
+      Telephone1: '3124312443',
+      Telephone2: '14312'
+    }
+
+    this.service.sendCreateRequest('user', user).subscribe();
+  }
 }

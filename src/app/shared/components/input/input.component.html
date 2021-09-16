@@ -1,4 +1,5 @@
 <label for="exampleInputEmail1">{{model.title}}</label>
+<span *ngIf="model.required">*</span>
 <input [type]="model.type" [class]="model.class" id="exampleInputEmail1" aria-describedby="emailHelp"
     [placeholder]="model.placeHolder" [(ngModel)]="model.value" (keyup)="model.mask();" (blur)="model.validation();" [maxlength]="model.maxLength">
 <small id="emailHelp" class="form-text text-muted">{{model.description}}</small>

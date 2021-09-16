@@ -9,6 +9,7 @@ import { FormComponent } from './components/form/form.component';
 import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
 import { AbbreviatePipe } from './pipes/abbreviate.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AbbreviatePipe } from './pipes/abbreviate.pipe';
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     SharedRoutingModule
   ],
   exports: [

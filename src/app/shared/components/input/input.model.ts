@@ -1,5 +1,6 @@
 import { MaskService } from "../../services/mask.service";
 import { ValidationService } from "../../services/validation.service";
+import EInputType from "./input.enum";
 
 class InputModel {
     
@@ -8,6 +9,7 @@ class InputModel {
     mask: Function;
     maxLength: number;
     placeHolder: string;
+    required: boolean;
     text: string;
     title: string;
     type: string;
@@ -20,6 +22,7 @@ class InputModel {
     private validationService: ValidationService;
     private defaultClass: string;
     private redBorderClass: string;
+    private inputType: EInputType;
 
     constructor() {
         this.defaultClass = 'form-control';
@@ -31,6 +34,7 @@ class InputModel {
         this.maskService = new MaskService();
         this.maxLength = 200;
         this.placeHolder = '';
+        this.required = false;
         this.text = '';
         this.title = '';
         this.type = 'text';
@@ -56,21 +60,41 @@ class InputModel {
         this.class = isValid ? this.defaultClass : this.redBorderClass;
     }
 
-    public AsName(): InputModel {
-        this.title = 'Nome';
-        this.type = 'text';
-        this.placeHolder = 'Digite o Nome';
-        this.maxLength = 50;
+    public asRequired(): InputModel {
+        this.required = true;
         return this;
     }
-    public AsCpf(): InputModel {
-        this.title = 'CPF';
+
+    public asName(title: string = 'Nome'): InputModel {
+        this.inputType = EInputType.Name;
+        this.maxLength = 50;
+        this.placeHolder = 'Digite o Nome';
+        this.title = title;
         this.type = 'text';
-        this.placeHolder = '000.000.000-00';
+        return this;
+    }
+
+    public asCpf(title: string = 'CPF'): InputModel {
         this.description = 'Fique tranquilo, seus dados estão seguros conosco.';
+        this.inputType = EInputType.Cpf;
         this.maskMethod = this.maskService.cpfMask;
         this.maxLength = 14
+        this.placeHolder = '000.000.000-00';
+        this.title = title;
+        this.type = 'text';
         this.validationMethod = this.validationService.cpfValidation;
+        return this;
+    }
+
+    public asTelephone(title: string = 'Telefone', inputType: EInputType = EInputType.Telephone): InputModel {
+        this.description = '';
+        this.inputType = inputType;
+        this.maskMethod = this.noMask;
+        this.maxLength = 15
+        this.placeHolder = '(00) 00000-0000';
+        this.title = title;
+        this.type = 'text';
+        this.validationMethod = this.noValidation;
         return this;
     }
 }

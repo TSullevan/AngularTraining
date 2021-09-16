@@ -13,10 +13,10 @@ export class RegisterFormComponent implements OnInit {
   constructor(){
     let inputName = new InputModel();
 
-    inputName.AsName();
+    inputName.asName();
     this.registerForm.inputs.push(inputName);
 
-    this.registerForm.inputs.push(new InputModel().AsCpf());
+    this.registerForm.inputs.push(new InputModel().asCpf());
     
    }
 
