@@ -1,0 +1,10 @@
+Lista
+<button (click)="fetchUserList()">Carregar lista</button>
+
+<div *ngFor="let user of userList">
+    <p>{{user.name}}</p>
+    <p>{{user.cpf}}</p>
+    <p>{{user.telephone1}}</p>
+    <p>{{user.telephone2}}</p>
+    <br>
+</div>

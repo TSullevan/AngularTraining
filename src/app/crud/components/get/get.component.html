@@ -1,0 +1,11 @@
+<p>get works!</p>
+<button (click)="doGetRequest()">Clique Aqui!</button>
+<button (click)="clear()">Apagar</button>
+<div *ngIf="user != null">
+    <p>Usuário!<p>
+    <p>{{user.name}}</p>
+    <p>{{user.cpf}}</p>
+    <p>{{user.telephone1}}</p>
+    <p>{{user.telephone2}}</p>
+    <br>
+</div>

@@ -5,12 +5,16 @@ import { CrudRoutingModule } from './crud-routing.module';
 import { CrudPageComponent } from './pages/crud-page/crud-page.component';
 import { CreateComponent } from './components/create/create.component';
 import { SharedModule } from '../shared/shared.module';
+import { GetComponent } from './components/get/get.component';
+import { ListComponent } from './components/list/list.component';
 
 
 @NgModule({
   declarations: [
     CrudPageComponent,
-    CreateComponent
+    CreateComponent,
+    GetComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
